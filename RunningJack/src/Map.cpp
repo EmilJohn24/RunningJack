@@ -8,6 +8,7 @@ Map::Map()
     player = new Player();
     height = 100;
     width = 100;
+    setWindowSize(height, width);
     player->setX(20);
     playerMinimumLevel = height - player->getHeight() - 10;
     player->setY(playerMinimumLevel);
