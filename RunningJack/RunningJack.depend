@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1566195301 source:c:\users\acer\runningjack\runningjack\src\game.cpp
+	"Game.h"
+
+1566195583 c:\users\acer\runningjack\runningjack\include\game.h
+	"Map.h"
+
+1566729319 c:\users\acer\runningjack\runningjack\include\map.h
+	"Solid.h"
+	"Player.h"
+	"energyCan.h"
+	"Barrier.h"
+	<conio.h>
+	<windows.h>
+
+1566729776 source:c:\users\acer\runningjack\runningjack\src\map.cpp
+	"Map.h"
+
+1566711533 source:c:\users\acer\runningjack\runningjack\src\player.cpp
+	"Player.h"
+
+1566729154 c:\users\acer\runningjack\runningjack\include\player.h
+	"Graphic.h"
+	"energyCan.h"
+	"Solid.h"
+	"Barrier.h"
+
+1566729280 c:\users\acer\runningjack\runningjack\include\graphic.h
+	<stdio.h>
+	"Animation.h"
+	"console.h"
+
+1566200247 c:\users\acer\runningjack\runningjack\include\console.h
+	<windows.h>
+
+1566663428 source:c:\users\acer\runningjack\runningjack\src\test.cpp
+	"Map.h"
+
+1566729013 source:c:\users\acer\runningjack\runningjack\src\graphic.cpp
+	"Graphic.h"
+
+1566729217 source:c:\users\acer\runningjack\runningjack\src\animation.cpp
+	"Animation.h"
+
+1566713587 c:\users\acer\runningjack\runningjack\include\animation.h
+	"Graphic.h"
+
+1566709935 c:\users\acer\runningjack\runningjack\include\solid.h
+	"Graphic.h"
+
+1566664255 source:c:\users\acer\runningjack\runningjack\src\solid.cpp
+	"Solid.h"
+
+1566663540 source:c:\users\acer\runningjack\runningjack\src\energycan.cpp
+	"energyCan.h"
+
+1566662446 c:\users\acer\runningjack\runningjack\include\energycan.h
+	"Solid.h"
+
+1566711666 source:c:\users\acer\runningjack\runningjack\src\barrier.cpp
+	"Barrier.h"
+
+1566711773 c:\users\acer\runningjack\runningjack\include\barrier.h
+	"Solid.h"
+
