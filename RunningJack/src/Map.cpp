@@ -25,9 +25,9 @@ void Map::collisionCheck(){
             first = solidArray[solid1];
             second = solidArray[solid2];
             gotoxy(0, 0);
-            printf("%d %d %d %d", first->getX(), first->getY(), second->getX(), second->getY());
-            if (first->getX() + first->getWidth() >= second->getX()&& first->getX() >= second->getX() + second->getWidth() &&
-                    first->getY() + first->getHeight() >= second->getY()){
+           // printf("%d %d %d %d", first->getX(), first->getY(), second->getX(), second->getY());
+            if (first->getX() + first->getWidth() > second->getX() && first->getX() < second->getX() + second->getWidth() &&
+                    first->getY() + first->getHeight() > second->getY() && first->getY() < second->getY() + second->getHeight()){
                         first->collidedAction(second);
                 }
         }
@@ -49,6 +49,7 @@ void Map::jumpAndFall(){
     }
     if (player->getY() < playerMinimumLevel){
         player->setY(playerMinimumLevel);
+        player->zeroOutJumpVelocity();
         //player->
 
     }
@@ -79,12 +80,12 @@ void Map::engine(){
         player->doAnimation();
         collisionCheck();
         frameCount += 1;
-        Sleep(frameLength / player->getEnergy());
+        Sleep(frameLength * player->getEnergy());
     }
 
 }
 void Map::moveEverything(){
-    double amount = 1;
+    double amount = this->LONGEST_MOVEMENT;
     for (int i = 1; i != solidCount; i++){
         solidArray[i]->move(-amount, 0);
         solidArray[i]->display();

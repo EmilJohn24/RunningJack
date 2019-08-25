@@ -1,0 +1,52 @@
+# Project: RunningJackProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = RunningJack/src/Animation.o RunningJack/src/Barrier.o RunningJack/src/energyCan.o RunningJack/src/Game.o RunningJack/src/Graphic.o RunningJack/src/Map.o RunningJack/src/Player.o RunningJack/src/Solid.o RunningJack/src/test.o
+LINKOBJ  = RunningJack/src/Animation.o RunningJack/src/Barrier.o RunningJack/src/energyCan.o RunningJack/src/Game.o RunningJack/src/Graphic.o RunningJack/src/Map.o RunningJack/src/Player.o RunningJack/src/Solid.o RunningJack/src/test.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc RunningJack/lib/console-lib64.a -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"./RunningJack/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"./RunningJack/include"
+BIN      = RunningJackProject.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+RunningJack/src/Animation.o: RunningJack/src/Animation.cpp
+	$(CPP) -c RunningJack/src/Animation.cpp -o RunningJack/src/Animation.o $(CXXFLAGS)
+
+RunningJack/src/Barrier.o: RunningJack/src/Barrier.cpp
+	$(CPP) -c RunningJack/src/Barrier.cpp -o RunningJack/src/Barrier.o $(CXXFLAGS)
+
+RunningJack/src/energyCan.o: RunningJack/src/energyCan.cpp
+	$(CPP) -c RunningJack/src/energyCan.cpp -o RunningJack/src/energyCan.o $(CXXFLAGS)
+
+RunningJack/src/Game.o: RunningJack/src/Game.cpp
+	$(CPP) -c RunningJack/src/Game.cpp -o RunningJack/src/Game.o $(CXXFLAGS)
+
+RunningJack/src/Graphic.o: RunningJack/src/Graphic.cpp
+	$(CPP) -c RunningJack/src/Graphic.cpp -o RunningJack/src/Graphic.o $(CXXFLAGS)
+
+RunningJack/src/Map.o: RunningJack/src/Map.cpp
+	$(CPP) -c RunningJack/src/Map.cpp -o RunningJack/src/Map.o $(CXXFLAGS)
+
+RunningJack/src/Player.o: RunningJack/src/Player.cpp
+	$(CPP) -c RunningJack/src/Player.cpp -o RunningJack/src/Player.o $(CXXFLAGS)
+
+RunningJack/src/Solid.o: RunningJack/src/Solid.cpp
+	$(CPP) -c RunningJack/src/Solid.cpp -o RunningJack/src/Solid.o $(CXXFLAGS)
+
+RunningJack/src/test.o: RunningJack/src/test.cpp
+	$(CPP) -c RunningJack/src/test.cpp -o RunningJack/src/test.o $(CXXFLAGS)

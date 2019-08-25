@@ -13,13 +13,13 @@
 	<conio.h>
 	<windows.h>
 
-1566729776 source:c:\users\acer\runningjack\runningjack\src\map.cpp
+1566732876 source:c:\users\acer\runningjack\runningjack\src\map.cpp
 	"Map.h"
 
 1566711533 source:c:\users\acer\runningjack\runningjack\src\player.cpp
 	"Player.h"
 
-1566729154 c:\users\acer\runningjack\runningjack\include\player.h
+1566733359 c:\users\acer\runningjack\runningjack\include\player.h
 	"Graphic.h"
 	"energyCan.h"
 	"Solid.h"
