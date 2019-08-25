@@ -3,6 +3,7 @@
 
 
 void Graphic::clearPreviousFrame(){
+    //deletes all traces of the currently printed frame
     gotoxy(x, y);
     for (int row = 0; row != rows; row++){
         gotoxy(x, y + row);
@@ -12,6 +13,7 @@ void Graphic::clearPreviousFrame(){
     }
 }
 void Graphic::setUpAnimation(char *infoFile, double frameLength){
+    //loads the animation files from a list of filenames in the info file
     FILE *playerFrameInfo = fopen(infoFile, "r");
     if (playerFrameInfo == NULL){
         printf("Error opening file.");
@@ -21,7 +23,6 @@ void Graphic::setUpAnimation(char *infoFile, double frameLength){
     while(!feof(playerFrameInfo)){
         filenames[i] = (char*) malloc(sizeof(char) * 100);
         fscanf(playerFrameInfo, "%s", filenames[i]);
-       // printf("Opened %s\n", filenames[i]);
         i++;
     }
     createAnimation(filenames, i, frameLength);
@@ -29,6 +30,7 @@ void Graphic::setUpAnimation(char *infoFile, double frameLength){
 
 }
 void Graphic::createAnimation(char **frameFiles, double frameCount, double frameLength){
+    //loads the  animations according to the file names in the frame file array
     Graphic **frames = (Graphic**) malloc(sizeof(Graphic*) * frameCount);
     for (int i = 0; i != frameCount; i++){
         frames[i] = new Graphic(frameFiles[i]);
@@ -39,6 +41,7 @@ void Graphic::createAnimation(char **frameFiles, double frameCount, double frame
 }
 
 void Graphic::display(){
+    //prints the graphic object on the screen
     gotoxy(x, y);
             //normal display
     for (int row = 0; row != rows; row++){
@@ -50,6 +53,7 @@ void Graphic::display(){
 }
 
 Graphic::Graphic(char* filename){
+    //creates the graphic object with the contents of the file in filename
     animationContainer = NULL;
     FILE *graphicFile = fopen(filename, "r");
     text = (char**) malloc(FAKE_MAXIMUM * sizeof(char*));
@@ -84,6 +88,7 @@ Graphic::Graphic(char* filename){
 }
 
 void Graphic::doAnimation(){
+    //runs the animation (if present)
     if (animationContainer != NULL){
         animationContainer->start(1);
     }

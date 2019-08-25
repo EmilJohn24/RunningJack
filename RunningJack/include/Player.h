@@ -8,6 +8,7 @@ class Player : public Solid
 {
     public:
         //using Solid::Solid(char*);
+        //player class, most classes here are self-explanatory
         static const int PLAYER_ID = 1;
         Player(): Solid("genericPlayer", PLAYER_ID){
             energy = 1;
@@ -27,6 +28,7 @@ class Player : public Solid
             jumpVelocity += _amount;
         };
         void jumpFrame(){
+            //loads the jumping frame of the object
             this->setY(this->getY() - jumpVelocity);
             this->getGraphic()->getAnimator()->updateGraphicsLocation(this->getX(), this->getY());
         };

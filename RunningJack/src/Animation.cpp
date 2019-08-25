@@ -8,6 +8,7 @@ Animation::~Animation()
 }
 
 void Animation::start(int repeats){
+    //starts the animation
     for (int i = 0; i != repeats; i++){
         for (int frame = 0; frame != frameCount; frame++){
             Sleep(frameLength);
@@ -18,6 +19,7 @@ void Animation::start(int repeats){
 }
 
 void Animation::updateGraphicsLocation(int x, int y){
+    //updates the location of all graphics objects in the animations
     for (int i = 0; i != frameCount; i++){
         graphicArray[i]->setXEmpty(x);
         graphicArray[i]->setYEmpty(y);

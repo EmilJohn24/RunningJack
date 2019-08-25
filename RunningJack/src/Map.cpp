@@ -18,6 +18,7 @@ Map::Map()
 }
 
 void Map::collisionCheck(){
+    //checks for collisions by pairing each solid present in the map
     Solid *first, *second;
     for (int solid1 = 0; solid1 != solidCount; solid1++){
         for (int solid2 = 0; solid2 != solidCount; solid2++){
@@ -25,7 +26,6 @@ void Map::collisionCheck(){
             first = solidArray[solid1];
             second = solidArray[solid2];
             gotoxy(0, 0);
-           // printf("%d %d %d %d", first->getX(), first->getY(), second->getX(), second->getY());
             if (first->getX() + first->getWidth() > second->getX() && first->getX() < second->getX() + second->getWidth() &&
                     first->getY() + first->getHeight() > second->getY() && first->getY() < second->getY() + second->getHeight()){
                         first->collidedAction(second);
@@ -35,6 +35,7 @@ void Map::collisionCheck(){
 
 }
 void Map::jumpAndFall(){
+    //checks for keyboard input and changes the jump velocity of the player accordingly
     if(kbhit()){
         //printf("Jump sequence...");
         char c = getch();
@@ -55,7 +56,7 @@ void Map::jumpAndFall(){
     }
 }
 void Map::engine(){
-
+    //runs every aspect of the game
     addSolid(player);
     energyCan *tmp;
     Barrier *newBarrier;
@@ -63,12 +64,14 @@ void Map::engine(){
         moveEverything();
         jumpAndFall();
         if (frameCount % barrierGap == 0){
+            //loads a new barrier in regular intervals
             newBarrier = new Barrier();
             newBarrier->setY(height - newBarrier->getHeight() - 10);
             newBarrier->setX(width); //change
             addSolid(newBarrier);
         }
         else if (frameCount % canGap == 0) {
+            //loads a can in regular intervals
             tmp = new energyCan();
             tmp->setY(height - tmp->getHeight() - 10);
             tmp->setX(width);
@@ -85,6 +88,7 @@ void Map::engine(){
 
 }
 void Map::moveEverything(){
+    //moves all solids in the map
     double amount = this->LONGEST_MOVEMENT;
     for (int i = 1; i != solidCount; i++){
         solidArray[i]->move(-amount, 0);

@@ -7,8 +7,9 @@ class Animation
     public:
         Animation(Graphic **graphics, int _frameCount, double _frameLength): graphicArray(graphics), frameCount(_frameCount), frameLength(_frameLength)  {};
         virtual ~Animation();
-        void start(int);
-        void updateGraphicsLocation(int x, int y);
+        void start(int); //loads the animation how many times the caller desires.
+        //since this is not an atomic function, nothing else can be running as it runs.
+        void updateGraphicsLocation(int x, int y); //updates the location of every graphic object in the animation
         //void pause();
 
 
