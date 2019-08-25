@@ -1,0 +1,52 @@
+# Project: RunningJackProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = src/Animation.o src/Barrier.o src/energyCan.o src/Game.o src/Graphic.o src/Map.o src/Player.o src/Solid.o src/test.o
+LINKOBJ  = src/Animation.o src/Barrier.o src/energyCan.o src/Game.o src/Graphic.o src/Map.o src/Player.o src/Solid.o src/test.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -L"lib" ./lib/console-lib64.a -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"include"
+BIN      = RunningJackProject.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+src/Animation.o: src/Animation.cpp
+	$(CPP) -c src/Animation.cpp -o src/Animation.o $(CXXFLAGS)
+
+src/Barrier.o: src/Barrier.cpp
+	$(CPP) -c src/Barrier.cpp -o src/Barrier.o $(CXXFLAGS)
+
+src/energyCan.o: src/energyCan.cpp
+	$(CPP) -c src/energyCan.cpp -o src/energyCan.o $(CXXFLAGS)
+
+src/Game.o: src/Game.cpp
+	$(CPP) -c src/Game.cpp -o src/Game.o $(CXXFLAGS)
+
+src/Graphic.o: src/Graphic.cpp
+	$(CPP) -c src/Graphic.cpp -o src/Graphic.o $(CXXFLAGS)
+
+src/Map.o: src/Map.cpp
+	$(CPP) -c src/Map.cpp -o src/Map.o $(CXXFLAGS)
+
+src/Player.o: src/Player.cpp
+	$(CPP) -c src/Player.cpp -o src/Player.o $(CXXFLAGS)
+
+src/Solid.o: src/Solid.cpp
+	$(CPP) -c src/Solid.cpp -o src/Solid.o $(CXXFLAGS)
+
+src/test.o: src/test.cpp
+	$(CPP) -c src/test.cpp -o src/test.o $(CXXFLAGS)
